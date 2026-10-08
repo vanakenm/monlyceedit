@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+@import 'tailwindcss';
+
+/* Palette inspirée du Système de design de l'État (DSFR) — sans en reprendre les marqueurs officiels */
+@theme {
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+
+  --color-bleu: #000091;
+  --color-bleu-hover: #1212ff;
+  --color-bleu-clair: #e3e3fd;
+  --color-bleu-tres-clair: #f5f5fe;
+  --color-rouge: #e1000f;
+  --color-gris-texte: #3a3a3a;
+  --color-gris-doux: #666666;
+  --color-gris-bordure: #dddddd;
+  --color-gris-fond: #f6f6f6;
+  --color-ambre: #fff4d6;
+  --color-ambre-texte: #6b4c00;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-gris-texte antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid #0a76f6;
+  outline-offset: 2px;
+}
+
+/* Soulignement des liens à la manière du DSFR */
+.lien {
+  @apply text-bleu underline decoration-1 underline-offset-4 hover:decoration-2;
+}
+
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
