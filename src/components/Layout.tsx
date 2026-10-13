@@ -37,6 +37,9 @@ export function EnTete() {
           <a href="#/" className="px-3 py-2 text-bleu hover:bg-gris-fond">
             Rechercher
           </a>
+          <a href="#/citations" className="px-3 py-2 text-bleu hover:bg-gris-fond">
+            Citations
+          </a>
           <a href="#/a-propos" className="px-3 py-2 text-bleu hover:bg-gris-fond">
             À propos
           </a>

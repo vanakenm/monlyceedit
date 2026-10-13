@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 
-export type Route = { page: 'accueil' } | { page: 'lycee'; id: string } | { page: 'apropos' }
+export type Route = { page: 'accueil' } | { page: 'lycee'; id: string } | { page: 'citations' } | { page: 'apropos' }
 
 function lire(): Route {
   const h = window.location.hash.replace(/^#\/?/, '')
   const [seg, arg] = h.split('/')
   if (seg === 'lycee' && arg) return { page: 'lycee', id: decodeURIComponent(arg) }
+  if (seg === 'citations') return { page: 'citations' }
   if (seg === 'a-propos') return { page: 'apropos' }
   return { page: 'accueil' }
 }

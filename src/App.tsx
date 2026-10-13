@@ -5,6 +5,7 @@ import { Avertissement, Conteneur, EnTete, PiedDePage } from './components/Layou
 import { FILTRES_INITIAUX, Recherche, type Filtres } from './pages/Recherche'
 import { LyceePage } from './pages/LyceePage'
 import { APropos } from './pages/APropos'
+import { Citations } from './pages/Citations'
 
 export default function App() {
   const route = useRoute()
@@ -23,6 +24,7 @@ export default function App() {
       </div>
     )
   else if (route.page === 'lycee') contenu = <LyceePage id={route.id} donnees={donnees} />
+  else if (route.page === 'citations') contenu = <Citations donnees={donnees} />
   else contenu = <Recherche donnees={donnees} filtres={filtres} setFiltres={setFiltres} />
 
   return (

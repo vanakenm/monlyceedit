@@ -31,13 +31,17 @@ export function useDonnees() {
 
 const detailCache = new Map<string, Promise<PersonneDetail>>()
 
+export function chargerPersonne(qid: string): Promise<PersonneDetail> {
+  if (!detailCache.has(qid)) detailCache.set(qid, fetch(`${BASE}data/personnes/${qid}.json`).then((r) => r.json()))
+  return detailCache.get(qid)!
+}
+
 export function usePersonneDetail(qid: string | null) {
   const [detail, setDetail] = useState<PersonneDetail | null>(null)
   useEffect(() => {
     if (!qid) return
     let actif = true
-    if (!detailCache.has(qid)) detailCache.set(qid, fetch(`${BASE}data/personnes/${qid}.json`).then((r) => r.json()))
-    detailCache.get(qid)!.then((d) => actif && setDetail(d))
+    chargerPersonne(qid).then((d) => actif && setDetail(d))
     return () => {
       actif = false
     }
