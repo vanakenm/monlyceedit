@@ -33,6 +33,7 @@ export interface PersonnesIndex {
 export interface Citation {
   texte: string
   source: string | null
+  origine: 'wikiquote' | 'manuelle'
 }
 
 export interface PersonneDetail {

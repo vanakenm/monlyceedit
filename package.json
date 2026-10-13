@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "data:lycees": "node scripts/fetch-lycees.mjs",
-    "data:personnes": "node scripts/fetch-personnalites.mjs",
+    "data:personnes": "node scripts/fetch-personnalites.mjs && npm run data:citations",
+    "data:citations": "node scripts/citations-manuelles.mjs",
     "data": "npm run data:lycees && npm run data:personnes"
   },
   "dependencies": {

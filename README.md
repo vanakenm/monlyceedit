@@ -13,6 +13,20 @@ npm run dev        # serveur de développement
 npm run build      # site statique dans dist/ (servable depuis n'importe quel dossier)
 ```
 
+## Déploiement
+
+Le site est hébergé sur Netlify (projet `monlyceedit`, compte `vanakenm`) : <https://monlyceedit.fr>, alias
+<https://monlyceedit.netlify.app>. Netlify est connecté au dépôt GitHub : chaque push sur `main` déclenche un build
+(`npm run build`) et une mise en production. La configuration du build et les en-têtes de cache sont dans
+`netlify.toml`.
+
+En cas de besoin, on peut encore mettre en production un build local sans passer par GitHub :
+
+```bash
+npm run build
+npx netlify-cli deploy --prod --dir dist --no-build --site 554ee0d0-a08a-4219-8fcf-ce0f6f5b2ee8
+```
+
 ## Données
 
 Les données sont déjà présentes dans `public/data/`. Pour les régénérer :
@@ -21,7 +35,12 @@ Les données sont déjà présentes dans `public/data/`. Pour les régénérer :
 npm run data            # = data:lycees puis data:personnes
 npm run data:lycees     # Annuaire de l'éducation → public/data/lycees.json (~1 s)
 npm run data:personnes  # Wikipédia / Wikidata / Wikiquote → public/data/personnes*.json (~15 min la 1re fois)
+npm run data:citations  # ajoute les citations manuelles (lancé automatiquement par data:personnes)
 ```
+
+Les citations saisies à la main sont dans `scripts/citations-manuelles.json` (clé : identifiant Wikidata). Elles
+s'affichent avant celles de Wikiquote. Ne modifiez pas directement `public/data/personnes/` : ce dossier est recréé à
+chaque génération.
 
 | Fichier                            | Contenu                                                                    |
 | ---------------------------------- | -------------------------------------------------------------------------- |

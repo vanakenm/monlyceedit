@@ -126,9 +126,9 @@ function Personnalite({ qid, personne }: { qid: string; personne: PersonneResume
               </li>
             ))}
           </ul>
-          {detail.wikiquote && (
+          {detail.wikiquote && detail.citations.some((c) => c.origine === 'wikiquote') && (
             <p className="mt-4 text-sm text-gris-doux">
-              Citations issues de{' '}
+              {detail.citations.every((c) => c.origine === 'wikiquote') ? 'Citations issues de' : 'Citations en partie issues de'}{' '}
               <a className="lien" href={detail.wikiquote} target="_blank" rel="noreferrer">
                 Wikiquote
               </a>{' '}
