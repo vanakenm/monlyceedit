@@ -107,19 +107,6 @@ function Personnalite({ qid, personne }: { qid: string; personne: PersonneResume
               {periode}
             </p>
           )}
-
-          <div className="mt-5 max-w-3xl space-y-3 leading-relaxed">
-            {detail ? detail.bio.map((p, i) => <p key={i}>{p}</p>) : <p className="text-gris-doux">Chargement de la biographie…</p>}
-          </div>
-          {detail && (
-            <p className="mt-3 text-sm text-gris-doux">
-              Source :{' '}
-              <a className="lien" href={detail.wikipedia} target="_blank" rel="noreferrer">
-                article « {detail.titre} » sur Wikipédia
-              </a>{' '}
-              (CC BY-SA 4.0)
-            </p>
-          )}
         </div>
       </div>
 
@@ -150,6 +137,22 @@ function Personnalite({ qid, personne }: { qid: string; personne: PersonneResume
           )}
         </div>
       )}
+
+      <div className="mt-12">
+        <h2 className="mb-4 text-2xl font-bold">Biographie</h2>
+        <div className="max-w-3xl space-y-3 leading-relaxed">
+          {detail ? detail.bio.map((p, i) => <p key={i}>{p}</p>) : <p className="text-gris-doux">Chargement de la biographie…</p>}
+        </div>
+        {detail && (
+          <p className="mt-3 text-sm text-gris-doux">
+            Source :{' '}
+            <a className="lien" href={detail.wikipedia} target="_blank" rel="noreferrer">
+              article « {detail.titre} » sur Wikipédia
+            </a>{' '}
+            (CC BY-SA 4.0)
+          </p>
+        )}
+      </div>
     </section>
   )
 }
