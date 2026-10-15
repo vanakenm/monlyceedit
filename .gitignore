@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 scripts/.cache
 .netlify
+public/data/lycees.csv

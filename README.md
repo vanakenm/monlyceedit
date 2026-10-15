@@ -48,6 +48,11 @@ chaque génération.
 | `public/data/personnes.json`       | Index : patronyme → identifiant Wikidata, et résumé de chaque personnalité |
 | `public/data/personnes/<qid>.json` | Biographie et citations, chargées à la demande sur la fiche du lycée       |
 | `public/data/meta.json`            | Source et date d'extraction                                                |
+| `public/data/lycees.csv`           | Export téléchargeable (lycée, adresse, personnalité, lien Wikipédia)       |
+
+`lycees.csv` n'est pas versionné : il est régénéré à partir des fichiers ci-dessus par `npm run data:csv`, lancé
+automatiquement avant `dev` et `build` (y compris sur Netlify). Séparateur `;` et BOM UTF-8 pour une ouverture directe
+dans Excel / LibreOffice en français.
 
 ### Comment les personnalités sont trouvées
 

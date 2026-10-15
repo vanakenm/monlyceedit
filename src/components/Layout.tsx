@@ -28,6 +28,25 @@ function Logo() {
   )
 }
 
+export const URL_CSV = `${import.meta.env.BASE_URL}data/lycees.csv`
+
+/** Icône de téléchargement de la liste complète des lycées (CSV généré au build). */
+function LienTelechargement() {
+  return (
+    <a
+      href={URL_CSV}
+      download="lycees-monlyceedit.csv"
+      title="Télécharger la liste des lycées (CSV : nom, adresse, personnalité, lien Wikipédia)"
+      aria-label="Télécharger la liste des lycées au format CSV"
+      className="ml-1 flex items-center justify-center border border-bleu px-2.5 py-2 text-bleu hover:bg-bleu-tres-clair"
+    >
+      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+        <path d="M12 3v12m0 0-5-5m5 5 5-5M4 17v3h16v-3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </a>
+  )
+}
+
 export function EnTete() {
   return (
     <header className="border-b border-gris-bordure bg-white shadow-[0_1px_3px_rgba(0,0,18,0.08)]">
@@ -43,6 +62,7 @@ export function EnTete() {
           <a href="#/a-propos" className="px-3 py-2 text-bleu hover:bg-gris-fond">
             À propos
           </a>
+          <LienTelechargement />
         </nav>
       </div>
       <div className="h-1 bg-gradient-to-r from-bleu via-white to-rouge" aria-hidden />
@@ -65,6 +85,12 @@ export function PiedDePage({ dateDonnees }: { dateDonnees?: string }) {
             (Licence Ouverte Etalab){dateDonnees && <>, extraites le {new Date(dateDonnees).toLocaleDateString('fr-FR')}</>}. Biographies :{' '}
             <a className="lien" href="https://fr.wikipedia.org">Wikipédia</a>, citations :{' '}
             <a className="lien" href="https://fr.wikiquote.org">Wikiquote</a> (licence CC BY-SA 4.0).
+          </p>
+          <p>
+            <a className="lien" href={URL_CSV} download="lycees-monlyceedit.csv">
+              Télécharger la liste des lycées (CSV)
+            </a>{' '}
+            : nom, adresse, coordonnées, personnalité et lien Wikipédia.
           </p>
         </div>
       </div>

@@ -5,13 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predev": "npm run data:csv",
     "build": "tsc -b && vite build",
+    "prebuild": "npm run data:csv",
     "lint": "oxlint",
     "preview": "vite preview",
     "data:lycees": "node scripts/fetch-lycees.mjs",
     "data:personnes": "node scripts/fetch-personnalites.mjs && npm run data:citations",
     "data:citations": "node scripts/citations-manuelles.mjs",
-    "data": "npm run data:lycees && npm run data:personnes"
+    "data": "npm run data:lycees && npm run data:personnes",
+    "data:csv": "node scripts/export-csv.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
